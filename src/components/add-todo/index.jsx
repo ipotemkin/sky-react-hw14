@@ -6,7 +6,7 @@ export const AddTodo = () => {
     const [value, setValue] = useState('')
     const dispatch = useDispatch()
 
-    const updateInput = (value) => setValue(value)
+    const updateInput = value => setValue(value)
 
     const handleAddTodo = () => {
         if (value.length === 0) return
@@ -14,13 +14,14 @@ export const AddTodo = () => {
         setValue('')
     }
 
-    const handleKeyDown = (e) => { if (e.keyCode === 13) handleAddTodo() }
+    const handleKeyDown = e => { if (e.keyCode === 13) handleAddTodo() }
 
     return <div className="card">
         <div className="form-control">
             <input
                 className="input"
                 type="text"
+                placeholder="Здесь будет текст задачи"
                 value={value}
                 onChange={e => updateInput(e.target.value)}
                 onKeyDown={e => handleKeyDown(e)}
