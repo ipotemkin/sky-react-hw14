@@ -1,7 +1,6 @@
-import { render, screen } from "@testing-library/react"
-import { Provider } from "react-redux"
+import { screen } from "@testing-library/react"
+import { render } from "../../test-utils"
 import { Todo } from "."
-import { store } from "../../app/store"
 
 const todo = {
         id: 1,
@@ -12,31 +11,19 @@ const todo = {
 
 describe('<Todo />', () => {
     it('should render successfully and match snapshot', () => {
-        const view = render(
-            <Provider store={store}>
-                <Todo todo={todo}/>
-            </Provider>
-        )
+        const view = render(<Todo todo={todo}/>)
 
         expect(view).toMatchSnapshot()
     })
 
     it('should show a task content', () => {
-        render(
-            <Provider store={store}>
-                <Todo todo={todo}/>
-            </Provider>
-        )
+        render(<Todo todo={todo}/>)
 
         expect(screen.getByText('test')).toBeInTheDocument()
     })
 
     it('should show ⏳', () => {
-        render(
-            <Provider store={store}>
-                <Todo todo={todo}/>
-            </Provider>
-        )
+        render(<Todo todo={todo}/>)
 
         expect(screen.getByText('⏳')).toBeInTheDocument()
     })
@@ -48,11 +35,7 @@ describe('<Todo />', () => {
             completed: true
         }
     
-        render(
-            <Provider store={store}>
-                <Todo todo={todo}/>
-            </Provider>
-        )
+        render(<Todo todo={todo}/>)
 
         expect(screen.getByText('✅')).toBeInTheDocument()
     })
