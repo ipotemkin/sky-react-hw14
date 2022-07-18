@@ -1,12 +1,16 @@
 import { useDispatch } from "react-redux"
-import { deleteleTodo, toggleTodo } from "../../actions/todo"
+// import { toggleTodo } from "../../actions/todo"
+import { deleteTodo, toggleTodo } from "../../thunk/todo"
 
 export const Todo = ({ todo }) => {
     const dispatch = useDispatch()
 
-    const toggleTodoItem = () => dispatch(toggleTodo(todo.id))
+    const toggleTodoItem = () => {
+        dispatch(toggleTodo(todo.id, !todo.completed))
+        console.log('todo.completed -->', todo.completed)
+    }
 
-    const deleteTodoItem = () => dispatch(deleteleTodo(todo.id))
+    const deleteTodoItem = () => dispatch(deleteTodo(todo.id))
 
     const truncateContent = (content, len) => (
         content.length < len ? content : content.slice(0, len) + "..."

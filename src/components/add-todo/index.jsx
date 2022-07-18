@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { addTodo } from "../../actions/todo"
+import { createTodo } from "../../thunk/todo"
 
 export const AddTodo = () => {
     const [value, setValue] = useState('')
@@ -10,7 +10,7 @@ export const AddTodo = () => {
 
     const handleAddTodo = () => {
         if (value.length === 0) return
-        dispatch(addTodo(value))
+        dispatch(createTodo(value))
         setValue('')
     }
 
