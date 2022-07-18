@@ -1,15 +1,21 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { todoListErrorSelector, todoListLoadingSelector, todosSelector } from "../../selectors/todo"
+// import { todoListErrorSelector, todoListLoadingSelector, todosSelector } from "../../selectors/todo"
 import { fetchTodos } from "../../thunk/todo"
 import { Todo } from "../todo"
 
 
 export const TodoList = () => {
     const dispatch = useDispatch()
-    const todos = useSelector(todosSelector)
-    const loading = useSelector(todoListLoadingSelector)
-    const error = useSelector(todoListErrorSelector)
+    
+    // const todos = useSelector(todosSelector)    
+    // const loading = useSelector(todoListLoadingSelector)
+    // const error = useSelector(todoListErrorSelector)
+
+    const todos = useSelector(state => state.todo.data)
+    const loading = useSelector(state => state.todo.loading)
+    const error = useSelector(state => state.todo.error)
+
     
     // eslint-disable-next-line
     useEffect(() => { dispatch(fetchTodos()) }, [])

@@ -1,19 +1,34 @@
 import axios from "axios";
 
 import {
+    // fetchTodoStarted,
+    // fetchTodoSuccess,
+    // fetchTodoFailure,
+    
+    // addTodoStarted,
+    // addTodoSuccess,
+    // addTodoFailure,
+    
+    // deleteTodoStarted,
+    // deleteTodoSuccess,
+    // deleteTodoFailure,
+    
+    // toggleTodoStarted,
+    // toggleTodoSuccess,
+    // toggleTodoFailure
+} from "../actions/todo";
+
+import {
     fetchTodoStarted,
     fetchTodoSuccess,
     fetchTodoFailure,
-    // addTodoStarted,
     addTodoSuccess,
     addTodoFailure,
-    // deleteTodoStarted,
     deleteTodoSuccess,
     deleteTodoFailure,
-    // toggleTodoStarted,
     toggleTodoSuccess,
     toggleTodoFailure
-} from "../actions/todo";
+} from "../features/todo/todoSlice";
 
 // const BASE_URL = './data.json';
 const BASE_URL = 'https://62d443e25112e98e484d24a8.mockapi.io/api/v1/tasks';
